@@ -20,12 +20,13 @@ class Network:
         result = []
 
         # run network over all samples
+        # How does it work this function?
         for i in range(samples):
             # forward propagation
             output = input_data[i]
             for layer in self.layers:
                 output = layer.forward_propagation(output)
-            result.append(output)
+            result.append(output) # check this output
 
         return result
 
@@ -52,5 +53,5 @@ class Network:
                     error = layer.backward_propagation(error, learning_rate)
 
             # calculate average error on all samples
-            err /= samples
+            err /= samples # what is this doing?
             print('epoch %d/%d   error=%f' % (i+1, epochs, err))
